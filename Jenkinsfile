@@ -43,11 +43,12 @@ pipeline {
             }
         }
         stage('Deploy') {
-            input {
+            /* input {
                 message "Should we continue?"
                 ok "Yes, we should."
                 submitter "alice,bob"
-            }
+            } */
+            when { branch 'main' }
             steps {
                 script {
                     sh """ 
