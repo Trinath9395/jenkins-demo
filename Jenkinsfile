@@ -2,7 +2,7 @@ pipeline {
     agent { label 'AGENT-1' }
     environment {
         PROJECT = 'expense'
-        COMPONENT = 'backend'
+        COMPONENT = 'BACKEND'
     }
     options {
         disableConcurrentBuilds()
@@ -23,7 +23,7 @@ pipeline {
                       echo "Hello, this is build step"
                       echo "Project: $PROJECT"
                       sleep 15 
-                      
+
                       echo "Hello ${params.PERSON}"
                       echo "Biography: ${params.BIOGRAPHY}"
                       echo "Toggle: ${params.TOGGLE}"
