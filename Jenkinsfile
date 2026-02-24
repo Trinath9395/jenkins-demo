@@ -3,6 +3,7 @@ pipeline {
     environment {
         PROJECT = 'expense'
         COMPONENT = 'BACKEND'
+        DEPLOY_TO = 'QA'
     }
     options {
         disableConcurrentBuilds()
@@ -48,7 +49,9 @@ pipeline {
                 ok "Yes, we should."
                 submitter "alice,bob"
             } */
-            when { branch 'main' }
+            when { 
+                environment name: 'DEPLOY_TO', value: 'PRODUCTION'
+            }
             steps {
                 script {
                     sh """ 
